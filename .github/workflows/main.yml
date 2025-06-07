@@ -36,11 +36,13 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: 20
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Enable Corepack & activate pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@8.15.1 --activate
 
       - name: install frontend dependencies
         run: pnpm install
