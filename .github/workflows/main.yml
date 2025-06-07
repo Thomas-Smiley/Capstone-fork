@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Enable Corepack & activate pnpm
         run: |
@@ -45,7 +45,7 @@ jobs:
           corepack prepare pnpm@8.15.1 --activate
 
       - name: install frontend dependencies
-        run: pnpm install
+        run: npm install
 
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
