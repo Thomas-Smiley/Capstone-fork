@@ -46,12 +46,6 @@ jobs:
       - name: install frontend dependencies
         run: pnpm install
 
-      - name: Verify pnpm installation
-        run: |
-          pnpm --version
-          which pnpm
-          echo $PATH
-
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -72,3 +66,9 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: tauri-build-${{ matrix.platform }}
+          path: src-tauri/target/release/bundle
