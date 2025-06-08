@@ -70,5 +70,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: tauri-build-${{ matrix.platform }}
+          name: ClassifiCam-${{ matrix.platform }}
           path: src-tauri/target/release/bundle
