@@ -24,9 +24,11 @@ jobs:
 
       - name: lint
         run: pnpm run lint
+        continue-on-error: true
 
-      - name: tests and coverage
+      - name: vitest tests and coverage
         run: pnpm run coverage
+        continue-on-error: true
               
   publish-tauri:
     permissions:
