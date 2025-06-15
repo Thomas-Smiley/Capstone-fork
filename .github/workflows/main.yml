@@ -31,7 +31,11 @@ jobs:
         continue-on-error: true
 
       - name: install backend dependencies
-        run: pip install pytest-cov
+        run: pip install pytest-cov pylint
+
+      - name: pylint
+        run: pylint --exit-zero ./python
+        continue-on-error: true
 
       - name: pytests and coverage
         run: pytest --cov=./python
