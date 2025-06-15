@@ -31,7 +31,7 @@ jobs:
         continue-on-error: true
 
       - name: install backend dependencies
-        run: uv sync
+        run: pip install pytest
 
       - name: pytests and coverage
         run: pytest --cov=./python
