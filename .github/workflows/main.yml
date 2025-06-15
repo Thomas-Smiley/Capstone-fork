@@ -7,6 +7,18 @@ on:
       - '**'
 
 jobs:
+  run-tests:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+    runs-on: 'windows-latest'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: lint
+        run: pnpm run lint
+              
   publish-tauri:
     permissions:
       contents: write
