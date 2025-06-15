@@ -24,6 +24,9 @@ jobs:
 
       - name: lint
         run: pnpm run lint
+
+      - name: tests and coverage
+        run: pnpm run coverage
               
   publish-tauri:
     permissions:
