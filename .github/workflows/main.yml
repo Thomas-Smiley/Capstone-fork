@@ -34,11 +34,11 @@ jobs:
         run: pip install pytest-cov pylint
 
       - name: pylint
-        run: pylint --exit-zero ./python
+        run: pylint --exit-zero ./python | tee -a Code_Report.txt
         continue-on-error: true
 
       - name: pytests and coverage
-        run: pytest --cov=./python
+        run: pytest --cov=./python | tee -a Code_Report.txt
         continue-on-error: true
 
       - name: upload code report
