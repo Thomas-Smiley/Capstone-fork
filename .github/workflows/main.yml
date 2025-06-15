@@ -19,6 +19,9 @@ jobs:
       - name: Install pnpm (Windows only)
         run: npm install -g pnpm@8
 
+      - name: install frontend dependencies
+        run: pnpm install
+
       - name: lint
         run: pnpm run lint
               
