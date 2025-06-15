@@ -16,6 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install pnpm (Windows only)
+        if: matrix.platform == 'windows-latest'
+        run: npm install -g pnpm@8
+
       - name: lint
         run: pnpm run lint
               
