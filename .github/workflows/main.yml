@@ -23,12 +23,18 @@ jobs:
         run: pnpm install
 
       - name: lint
-        run: pnpm run lint
+        run: pnpm run lint | tee Code_Report.txt
         continue-on-error: true
 
       - name: vitest tests and coverage
         run: pnpm run coverage
         continue-on-error: true
+
+      - name: upload code report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Results
+          path: Code_Report.txt
               
   publish-tauri:
     permissions:
