@@ -31,7 +31,7 @@ jobs:
         continue-on-error: true
 
       - name: install backend dependencies
-        run: pip install pytest
+        run: pip install pytest-cov
 
       - name: pytests and coverage
         run: pytest --cov=./python
